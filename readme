@@ -1,0 +1,44 @@
+
+sudo docker build -t apline-vsomeip:1.01 .
+sudo docker image rmi -f b976e0f7e46a
+
+sudo docker rm -f <docker id> 
+sudo docker rm -f <docker id> --input  => use this cmd when error to stop the container
+sudo docker image ls
+sudo snap install docker 
+sudo apt  install docker-compose
+
+docker-compose build
+docker load -i sdv-someip.tar
+
+docker run -it <docker image ID> /bin/bash
+
+sudo docker run --network host -P --privileged=true -it 79f94f3f9e22 /bin/bash
+
+
+apt-get install net-tools
+apt-get install -y iputils-ping
+route add -host 224.224.224.225 dev ens33
+
+export VSOMEIP_CONFIGURATION=/home/work/vsomeip/config/vsomeip.json
+export VSOMEIP_APPLICATION_NAME=notify-sample
+
+export VSOMEIP_CONFIGURATION=/home/work/vsomeip/config/mvsomeip-udp-service.json
+export VSOMEIP_APPLICATION_NAME=notify-sample
+
+export VSOMEIP_CONFIGURATION=/home/work/vsomeip/config/mvsomeip-udp-client.json
+export VSOMEIP_APPLICATION_NAME=subscribe-sample
+
+
+sudo docker run --rm --privileged aptman/qus -s -- -p x86_64
+
+export VSOMEIP_APPLICATION_NAME=notify-sample
+
+sudo docker network create <network-name>
+docker run -p <port>:<port> --net <network-name> -it <containerID> /bin/bash
+
+ip route add 12.20.0.0/24 via 192.168.0.150 && ip route"
+default via 192.168.0.10 dev eth0 
+
+docker exec --privileged=true -it node_a bash
+
