@@ -41,4 +41,26 @@ ip route add 12.20.0.0/24 via 192.168.0.150 && ip route"
 default via 192.168.0.10 dev eth0 
 
 docker exec --privileged=true -it node_a bash
+// Docker Swarm installation 
+sudo apt-get update -y && sudo apt-get upgrade -y
+sudo docker swarm init --advertise-addr 192.168.233.132
+sudo docker swarm join --token SWMTKN-1-26sknbcnnzwqo6ef3f5ymfsedelxtiapz44mvz3eb1ujuvwso3-18v63ufakca05mwbb5le22mx7 192.168.233.132:2377
+Configure firewall
+sudo ufw allow 2376/tcp && sudo ufw allow 7946/udp && sudo ufw allow 7946/tcp && sudo ufw allow 80/tcp && sudo ufw allow 2377/tcp && sudo ufw allow 4789/udp
+
+reload the UFW firewall and enable it to start on boot: sudo ufw reload && sudo ufw enable Restart the Docker service to affect the Docker rules: sudo systemctl restart docker
+ docker swarm join
+  docker node ls
+  
+  
+  Launch web service in Docker Swarm
+  
+  docker service create --name webserver -p 80:80 httpd
+  docker service ls 
+  docker service scale webserver=2
+  
+  docker service ps webserver
+  
+  sudo systemctl stop docker
+  docker service ps webserver
 
